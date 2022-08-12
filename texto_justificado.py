@@ -38,7 +38,7 @@ def justificador(texto, ancho):
 
     for linea in parrafo_lista:
 
-        contador = 0
+        
         lista_linea = linea.split()
         contador = contador_caracteres(lista_linea)
 
