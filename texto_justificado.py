@@ -67,10 +67,10 @@ def justificador(texto, ancho):
 
 
 if __name__ == "__main__":
-    # parrafo = input("Escribe un parrafo: ")
-    # ancho = int(input("Escribe el ancho del parrafo deseado: "))
-    parrafo = "La historia de la ópera tiene una duración relativamente corta dentro del contexto de la historia de la música en general apareció en 1597, fecha en que se creó la primera ópera."
-    ancho = 40
+    parrafo = input("Escribe un parrafo: ")
+    ancho = int(input("Escribe el ancho del parrafo deseado: "))
+    # parrafo = "La historia de la ópera tiene una duración relativamente corta dentro del contexto de la historia de la música en general apareció en 1597, fecha en que se creó la primera ópera."
+    # ancho = 40
 
     justificador(
         parrafo,
