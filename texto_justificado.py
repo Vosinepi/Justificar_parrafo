@@ -25,6 +25,9 @@ def justificador(texto, ancho):
     palabras = texto.split()
     parrafo_lista = []  # lista de líneas ajustdadas width
     linea = ""
+    linea_justificada = ""
+    parrafo_justificado = ""
+
     for palabra in palabras:
         if len(linea) + len(palabra) + 1 > ancho:
             parrafo_lista.append(linea)
@@ -33,12 +36,8 @@ def justificador(texto, ancho):
             linea += palabra + " "
     parrafo_lista.append(linea)
 
-    linea_justificada = ""
-    parrafo_justificado = ""
-
     for linea in parrafo_lista:
 
-        
         lista_linea = linea.split()
         contador = contador_caracteres(lista_linea)
 
@@ -68,9 +67,11 @@ def justificador(texto, ancho):
 
 
 if __name__ == "__main__":
-    parrafo = input("Escribe un parrafo: ")
-    ancho = int(input("Escribe el ancho del parrafo deseado: "))
-   
+    # parrafo = input("Escribe un parrafo: ")
+    # ancho = int(input("Escribe el ancho del parrafo deseado: "))
+    parrafo = "La historia de la ópera tiene una duración relativamente corta dentro del contexto de la historia de la música en general apareció en 1597, fecha en que se creó la primera ópera."
+    ancho = 40
+
     justificador(
         parrafo,
         ancho,
