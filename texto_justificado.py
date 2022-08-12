@@ -14,7 +14,7 @@ def contador_caracteres(lista):
 
 
 # justicador
-def justificador(text, width):
+def justificador(texto, ancho):
     """
     Toma una cadena y un ancho, y devuelve una cadena con las mismas palabras, pero con espacios
     agregados para que cada línea tenga exactamente el ancho de caracteres.
@@ -22,39 +22,38 @@ def justificador(text, width):
     :param text: el texto a justificar
     :param width: el ancho del párrafo
     """
-    words = text.split()
-    lines = []  # lista de líneas ajustdadas width
-    line = ""
-    for word in words:
-        if len(line) + len(word) + 1 > width:
-            lines.append(line)
-            line = word + " "
-        else:
-            line += word + " "
-    lines.append(line)
-
+    palabras = texto.split()
+    parrafo_lista = []  # lista de líneas ajustdadas width
     linea = ""
-    parrafo_justificado = ""
-    contador = 0
+    for palabra in palabras:
+        if len(linea) + len(palabra) + 1 > ancho:
+            parrafo_lista.append(linea)
+            linea = palabra + " "
+        else:
+            linea += palabra + " "
+    parrafo_lista.append(linea)
 
-    for line in lines:
+    linea_justificada = ""
+    parrafo_justificado = ""
+
+    for linea in parrafo_lista:
 
         contador = 0
-        lista_linea = line.split()
+        lista_linea = linea.split()
         contador = contador_caracteres(lista_linea)
 
         if len(lista_linea) == 1:
             for i in range(len(lista_linea[:-1])):
                 lista_linea[i] = lista_linea[i]
 
-        elif line != lines[-1]:
-            while contador < width:
+        elif linea != parrafo_lista[-1]:
+            while contador < ancho:
 
                 for i in range(len(lista_linea[:-1])):
 
                     lista_linea[i] = lista_linea[i] + " "
                     contador += 1
-                    if contador == width:
+                    if contador == ancho:
                         break
         else:
             for i in range(
@@ -62,8 +61,8 @@ def justificador(text, width):
             ):  # Ultima linea no se ajusta ni formatea.
 
                 lista_linea[i] = lista_linea[i] + " "
-        linea = "".join(lista_linea)
-        parrafo_justificado += linea + "\n"
+        linea_justificada = "".join(lista_linea)
+        parrafo_justificado += linea_justificada + "\n"
 
     print(parrafo_justificado)
 
@@ -71,7 +70,7 @@ def justificador(text, width):
 if __name__ == "__main__":
     parrafo = input("Escribe un parrafo: ")
     ancho = int(input("Escribe el ancho del parrafo: "))
-
+   
     justificador(
         parrafo,
         ancho,
