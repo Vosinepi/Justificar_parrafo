@@ -69,7 +69,7 @@ def justificador(texto, ancho):
 
 if __name__ == "__main__":
     parrafo = input("Escribe un parrafo: ")
-    ancho = int(input("Escribe el ancho del parrafo: "))
+    ancho = int(input("Escribe el ancho del parrafo deseado: "))
    
     justificador(
         parrafo,
