@@ -1,16 +1,4 @@
 # contador
-def contador_caracteres(lista):
-    """
-    Cuenta el número de caracteres en una lista de strings
-
-    :param lista: lista de cadenas
-    :return: El número de caracteres en la lista.
-    """
-    contador = 0
-    for i in lista:
-        contador += len(i)
-
-    return contador
 
 
 # justicador
@@ -25,8 +13,6 @@ def justificador(texto, ancho):
     palabras = texto.split()
     parrafo_lista = []  # lista de líneas ajustdadas width
     linea = ""
-    parrafo_justificado = ""
-
     for palabra in palabras:
         if len(linea) + len(palabra) + 1 > ancho:
             parrafo_lista.append(linea)
@@ -35,10 +21,16 @@ def justificador(texto, ancho):
             linea += palabra + " "
     parrafo_lista.append(linea)
 
+    linea_justificada = ""
+    parrafo_justificado = ""
+
     for linea in parrafo_lista:
 
         lista_linea = linea.split()
-        contador = contador_caracteres(lista_linea)
+        cont_caract_linea = lambda lista: sum(
+            map(len, lista)
+        )  # contador de caracteres por linea
+        contador = cont_caract_linea(lista_linea)
 
         if len(lista_linea) == 1:
             for i in range(len(lista_linea[:-1])):
@@ -67,10 +59,9 @@ def justificador(texto, ancho):
 
 if __name__ == "__main__":
     # parrafo = input("Escribe un parrafo: ")
-    # ancho = int(input("Escribe el ancho del parrafo deseado: "))
+    # ancho = int(input("Escribe el ancho del parrafo: "))
     parrafo = "La historia de la ópera tiene una duración relativamente corta dentro del contexto de la historia de la música en general apareció en 1597, fecha en que se creó la primera ópera."
-    ancho = 30
-
+    ancho = 40
     justificador(
         parrafo,
         ancho,
